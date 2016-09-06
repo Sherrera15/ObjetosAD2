@@ -6,6 +6,8 @@
 
 package interfaz;
 
+import clases.Fraccionario;
+
 /**
  *
  * @author sherrera18
@@ -94,9 +96,19 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtDenominador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 60, -1));
 
         cmdCalcular.setText("CALCULAR");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
         cmdBorrar.setText("BORRAR");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,6 +143,49 @@ public class Principal extends javax.swing.JFrame {
     private void cmbOperacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOperacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbOperacionActionPerformed
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        int op, n1,n2,d1,d2;
+        Fraccionario f1,f2,f3;
+        
+        op =cmbOperacion.getSelectedIndex();
+        n1 = Integer.parseInt(txtNumerador1.getText());
+        n2 = Integer.parseInt(txtNumerador2.getText());
+        d1 = Integer.parseInt(txtDenominador1.getText());
+        d2 = Integer.parseInt(txtDenominador2.getText());
+        
+        f1 = new Fraccionario(n1,d1);
+        f2 = new Fraccionario (n2,d2);
+        switch (op) {
+            case 0:
+                f3 = f1.sumar(f2);
+                txtNumerador3.setText(""+f3.getNumerador());
+                txtDenominador3.setText(""+f3.getDenominador());
+                break;
+                
+            case 1:
+                f3 =f1.restar(f2);
+                txtNumerador3.setText(""+f3.getNumerador());
+                txtDenominador3.setText(""+f3.getDenominador());
+                break;
+       
+        }
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+       txtNumerador1.setText("");
+       txtNumerador2.setText("");
+       txtNumerador3.setText("");
+       txtDenominador1.setText("");
+       txtDenominador2.setText("");
+       txtDenominador3.setText("");
+       
+       
+       txtNumerador1.requestFocusInWindow();
+       cmbOperacion.setSelectedIndex(0);
+       
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
