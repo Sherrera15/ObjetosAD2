@@ -56,7 +56,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("OPERACIONES CON FRACCIONARIOS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suma", "Resta", "Multiplicación", "División", " " }));
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suma", "Resta", "Multiplicación", "División" }));
         cmbOperacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOperacionActionPerformed(evt);
@@ -167,6 +167,20 @@ public class Principal extends javax.swing.JFrame {
                 
             case 1:
                 f3 =f1.restar(f2);
+                txtNumerador3.setText(""+f3.getNumerador());
+                txtDenominador3.setText(""+f3.getDenominador());
+                break;
+                
+                
+                case 2:
+                
+                f3 = f1.multiplicar(f2);
+                txtNumerador3.setText(""+f3.getNumerador());
+                txtDenominador3.setText(""+f3.getDenominador());
+                break;
+                
+            case 3:
+                f3 = f1.dividir(f2);
                 txtNumerador3.setText(""+f3.getNumerador());
                 txtDenominador3.setText(""+f3.getDenominador());
                 break;
