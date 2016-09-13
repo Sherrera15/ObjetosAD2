@@ -47,6 +47,12 @@ public class Principal extends javax.swing.JFrame {
         txtDenominador3 = new javax.swing.JTextField();
         cmdCalcular = new javax.swing.JButton();
         cmdBorrar = new javax.swing.JButton();
+        cmdConvertir = new javax.swing.JButton();
+        txtMixto = new javax.swing.JTextField();
+        txtNumeradorM = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        txtDenominadorM = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,8 +75,19 @@ public class Principal extends javax.swing.JFrame {
                 txtNumerador1ActionPerformed(evt);
             }
         });
+        txtNumerador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 60, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 100, 10));
+
+        txtDenominador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDenominador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 60, -1));
 
         txtNumerador2.addActionListener(new java.awt.event.ActionListener() {
@@ -78,8 +95,19 @@ public class Principal extends javax.swing.JFrame {
                 txtNumerador2ActionPerformed(evt);
             }
         });
+        txtNumerador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 60, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 100, 10));
+
+        txtDenominador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDenominador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 60, -1));
 
         jLabel2.setText("=");
@@ -103,7 +131,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdCalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         cmdBorrar.setText("BORRAR");
         cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +139,26 @@ public class Principal extends javax.swing.JFrame {
                 cmdBorrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 90, -1));
+
+        cmdConvertir.setText("CONVERTIR A NÚMERO MIXTO");
+        cmdConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdConvertirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdConvertir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+
+        txtMixto.setEditable(false);
+        jPanel1.add(txtMixto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 60, -1));
+
+        txtNumeradorM.setEditable(false);
+        jPanel1.add(txtNumeradorM, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 40, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 70, 0));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 70, -1));
+
+        txtDenominadorM.setEditable(false);
+        jPanel1.add(txtDenominadorM, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 40, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,6 +194,30 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbOperacionActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+       
+        if (txtNumerador1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el numerador 1", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtNumerador1.requestFocusInWindow();
+            txtNumerador1.selectAll();
+            
+          } else if (txtNumerador2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el numerador 2", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtNumerador2.requestFocusInWindow();
+            txtNumerador2.selectAll();
+            
+        } else if (txtDenominador1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el denominador 1", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtDenominador1.requestFocusInWindow();
+            txtDenominador1.selectAll();
+            
+            
+        } else if (txtDenominador2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el denominador 2", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtDenominador2.requestFocusInWindow();
+            txtDenominador2.selectAll();
+        }
+         
+         
         int op, n1,n2,d1,d2;
         Fraccionario f1,f2,f3;
         
@@ -200,12 +271,84 @@ public class Principal extends javax.swing.JFrame {
        txtDenominador1.setText("");
        txtDenominador2.setText("");
        txtDenominador3.setText("");
+       txtNumeradorM.setText("");
+       txtDenominadorM.setText("");
+       txtMixto.setText("");
        
        
        txtNumerador1.requestFocusInWindow();
        cmbOperacion.setSelectedIndex(0);
        
     }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
+       String ente, num,den;
+       int num3,den3;
+       double mixto,nm;
+       
+        num3 = Integer.parseInt(txtNumerador3.getText());
+        den3= Integer.parseInt(txtDenominador3.getText()); 
+        
+        if (num3 < den3){
+        JOptionPane.showMessageDialog(this, "No puede convertirse a mixto","ERROR",JOptionPane.ERROR_MESSAGE);
+        txtNumerador1.requestFocusInWindow();
+        
+        
+        
+        }else {
+        
+        mixto = (num3/den3);
+        nm = (num3 % den3);
+        
+        ente = String.valueOf (mixto);
+        txtMixto.setText(ente);
+        
+        num = String.valueOf (nm);
+        txtNumeradorM.setText(num);
+        
+        
+        den = String.valueOf (den3);
+        txtDenominadorM.setText(den);
+        
+        }
+        
+    }//GEN-LAST:event_cmdConvertirActionPerformed
+
+    private void txtNumerador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador1KeyTyped
+       char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumerador1KeyTyped
+
+    private void txtDenominador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador1KeyTyped
+       char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDenominador1KeyTyped
+
+    private void txtNumerador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador2KeyTyped
+       char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumerador2KeyTyped
+
+    private void txtDenominador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador2KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDenominador2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -246,17 +389,23 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbOperacion;
     private javax.swing.JButton cmdBorrar;
     private javax.swing.JButton cmdCalcular;
+    private javax.swing.JButton cmdConvertir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField txtDenominador1;
     private javax.swing.JTextField txtDenominador2;
     private javax.swing.JTextField txtDenominador3;
+    private javax.swing.JTextField txtDenominadorM;
+    private javax.swing.JTextField txtMixto;
     private javax.swing.JTextField txtNumerador1;
     private javax.swing.JTextField txtNumerador2;
     private javax.swing.JTextField txtNumerador3;
+    private javax.swing.JTextField txtNumeradorM;
     // End of variables declaration//GEN-END:variables
 }

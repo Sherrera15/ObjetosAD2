@@ -83,6 +83,4 @@ public class Fraccionario {
         return f;
         }
 
-
-    
 }
